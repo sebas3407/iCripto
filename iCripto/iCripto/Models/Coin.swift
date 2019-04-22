@@ -3,7 +3,9 @@ import Foundation
 struct Coin : Codable {
     let id, name, symbol, rank: String
     let priceUsd, priceBtc, the24HVolumeUsd, marketCapUsd: String
-    let availableSupply, totalSupply, maxSupply, percentChange1H: String
+    let availableSupply, totalSupply : String
+    let maxSupply : String = " "
+    let percentChange1H: String
     let percentChange24H, percentChange7D, lastUpdated: String
     
     enum CodingKeys: String, CodingKey {

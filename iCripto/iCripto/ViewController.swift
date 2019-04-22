@@ -12,10 +12,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        DownloadCoins()
     }
 
-    func DownloadQuote()
+    func DownloadCoins()
     {
         //Implementing URLSession
         let urlString = "https://api.coinmarketcap.com/v1/ticker/?limit=0"
@@ -28,10 +29,9 @@ class ViewController: UIViewController {
             
             guard let dataFromUrl = data else { return }
             do {
-                let coins = try JSONDecoder().decode(Coin.self, from: dataFromUrl)
+                let coins = try JSONDecoder().decode(Array<Coin>.self, from: dataFromUrl)
                 
                 DispatchQueue.main.async {
-                    
                 }
                 
             } catch let jsonError {
