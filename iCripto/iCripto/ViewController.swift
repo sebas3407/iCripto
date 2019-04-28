@@ -12,6 +12,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     var coins : Array<Coin> = []
     
+    @IBOutlet weak var table_coins: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +36,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.coins = try JSONDecoder().decode(Array<Coin>.self, from: dataFromUrl)
                 
                 DispatchQueue.main.async {
+                    self.table_coins.reloadData()
                 }
                 
             } catch let jsonError {
@@ -56,4 +59,3 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
 }
-
