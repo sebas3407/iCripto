@@ -18,6 +18,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         
         DownloadCoins()
+        table_coins.backgroundColor = UIColor.clear
+
     }
 
     func DownloadCoins()
@@ -55,12 +57,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let cell:UITableViewCell=UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "mycell")
         cell.textLabel?.text  = coins[indexPath.row].name
-        
+   
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         print(coins[indexPath.row].name)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell,
+                   forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
     }
 }
