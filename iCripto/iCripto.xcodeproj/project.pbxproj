@@ -14,6 +14,7 @@
 		AA3C8293226910AC008CC066 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA3C8292226910AC008CC066 /* Assets.xcassets */; };
 		AA3C8296226910AC008CC066 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA3C8294226910AC008CC066 /* LaunchScreen.storyboard */; };
 		AA3C829F2269119E008CC066 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3C829E2269119E008CC066 /* Coin.swift */; };
+		AAD748B6231B16240039FFE8 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD748B5231B16240039FFE8 /* HelperExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		AA3C8295226910AC008CC066 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA3C8297226910AC008CC066 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA3C829E2269119E008CC066 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		AAD748B5231B16240039FFE8 /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		AA3C8287226910A9008CC066 /* iCripto */ = {
 			isa = PBXGroup;
 			children = (
+				AAD748B4231B153D0039FFE8 /* Extensions */,
 				AA3C829D2269118E008CC066 /* Models */,
 				AA3C8288226910A9008CC066 /* AppDelegate.swift */,
 				AA3C828A226910A9008CC066 /* ViewController.swift */,
@@ -76,6 +79,14 @@
 				AA3C829E2269119E008CC066 /* Coin.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		AAD748B4231B153D0039FFE8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AAD748B5231B16240039FFE8 /* HelperExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +162,7 @@
 			files = (
 				AA3C828B226910A9008CC066 /* ViewController.swift in Sources */,
 				AA3C8289226910A9008CC066 /* AppDelegate.swift in Sources */,
+				AAD748B6231B16240039FFE8 /* HelperExtensions.swift in Sources */,
 				AA3C829F2269119E008CC066 /* Coin.swift in Sources */,
 				AA3C8291226910A9008CC066 /* iCripto.xcdatamodeld in Sources */,
 			);

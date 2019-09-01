@@ -12,13 +12,39 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     var coins : Array<Coin> = []
     
-    @IBOutlet weak var table_coins: UITableView!
+    @IBOutlet weak var viewFirstCoin: UIView!
+    @IBOutlet weak var viewSecondCoin: UIView!
+    @IBOutlet weak var viewThirdCoin: UIView!
+    @IBOutlet weak var viewFourthCoin: UIView!
+    
+    let tap = UITapGestureRecognizer(target: self, action: #selector(setGender(sender:)))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         DownloadCoins()
-        table_coins.backgroundColor = UIColor.clear
-
+        viewFirstCoin.addGestureRecognizer(tap)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let purpleTop = UIColor(hex: 0xFF7340F5).cgColor
+        let purpleBotoom = UIColor(hex: 0xFF7340F4).cgColor
+        
+        let greenTop = UIColor(hex: 0x92FE9D).cgColor
+        let greenBottom = UIColor(hex: 0x00C9FF).cgColor
+        
+        let orangeTop = UIColor(hex: 0xfe8c00).cgColor
+        let orangeBottom = UIColor(hex: 0xf83600).cgColor
+        
+        let pinkTop = UIColor(hex: 0xF15F79).cgColor
+        let pinkBottom = UIColor(hex: 0xB24592).cgColor
+        
+        viewFirstCoin.setGradient(colorTop: purpleTop, colorBottom: purpleBotoom)
+        viewSecondCoin.setGradient(colorTop: greenTop, colorBottom: greenBottom)
+        viewThirdCoin.setGradient(colorTop: orangeTop, colorBottom: orangeBottom)
+        viewFourthCoin.setGradient(colorTop: pinkTop, colorBottom: pinkBottom)
+        
+        super.viewWillAppear(animated)
     }
 
     func DownloadCoins()
@@ -37,7 +63,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.coins = try JSONDecoder().decode(Array<Coin>.self, from: dataFromUrl)
                 
                 DispatchQueue.main.async {
-                    self.table_coins.reloadData()
+
                 }
                 
             } catch let jsonError {
@@ -46,6 +72,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             }.resume()
         //End implementing URLSession
+    }
+    
+    @objc func setGender(sender: UITapGestureRecognizer) {
+        print("tap")
+        let button = sender.view as? UIButton
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
