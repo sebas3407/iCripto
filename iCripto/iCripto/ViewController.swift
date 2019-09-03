@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class ViewController: UIViewController {
 
     var coins : Array<Coin> = []
     
@@ -17,11 +17,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var viewThirdCoin: UIView!
     @IBOutlet weak var viewFourthCoin: UIView!
     
-    let tap = UITapGestureRecognizer(target: self, action: #selector(setGender(sender:)))
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         DownloadCoins()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(setGender(sender:)))
         viewFirstCoin.addGestureRecognizer(tap)
     }
     
@@ -76,33 +75,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @objc func setGender(sender: UITapGestureRecognizer) {
         print("tap")
-        let button = sender.view as? UIButton
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return coins.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let view = sender.view as? UIView
         
-        let cell:UITableViewCell=UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "mycell")
-        cell.textLabel?.text  = coins[indexPath.row].name
-   
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let destVC = storyboard.instantiateViewController(withIdentifier: "destinationVC") as! CoinsViewController
         
-        print(coins[indexPath.row].name)
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell,
-                   forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = UIColor.clear
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
+        destVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        destVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         
-        return .lightContent
+        self.present(destVC, animated: true, completion: nil)
     }
 }
