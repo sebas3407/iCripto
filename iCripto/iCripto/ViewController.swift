@@ -12,10 +12,12 @@ class ViewController: UIViewController {
 
     var coins : Array<Coin> = []
     
+    //UI controls
     @IBOutlet weak var viewFirstCoin: UIView!
     @IBOutlet weak var viewSecondCoin: UIView!
     @IBOutlet weak var viewThirdCoin: UIView!
     @IBOutlet weak var viewFourthCoin: UIView!
+    @IBOutlet weak var lblToday: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +45,7 @@ class ViewController: UIViewController {
         viewThirdCoin.setGradient(colorTop: orangeTop, colorBottom: orangeBottom)
         viewFourthCoin.setGradient(colorTop: pinkTop, colorBottom: pinkBottom)
         
+        lblToday.text = setDate(date: Date())
         super.viewWillAppear(animated)
     }
 
@@ -71,6 +74,12 @@ class ViewController: UIViewController {
             
             }.resume()
         //End implementing URLSession
+    }
+    
+    func setFormatte(date : Date) -> String{
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return formatter.string(from: date)
     }
     
     @objc func setGender(sender: UITapGestureRecognizer) {
