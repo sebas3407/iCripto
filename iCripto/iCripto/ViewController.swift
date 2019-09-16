@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         viewThirdCoin.setGradient(colorTop: orangeTop, colorBottom: orangeBottom)
         viewFourthCoin.setGradient(colorTop: pinkTop, colorBottom: pinkBottom)
         
-        lblToday.text = setDate(date: Date())
+        lblToday.text = setFormatedDate(date: Date())
         super.viewWillAppear(animated)
     }
 
@@ -76,7 +76,7 @@ class ViewController: UIViewController {
         //End implementing URLSession
     }
     
-    func setFormatte(date : Date) -> String{
+    func setFormatedDate(date : Date) -> String{
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         return formatter.string(from: date)
