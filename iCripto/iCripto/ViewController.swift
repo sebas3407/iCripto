@@ -82,15 +82,14 @@ class ViewController: UIViewController {
         return formatter.string(from: date)
     }
     
-    @objc func setGender(sender: UITapGestureRecognizer) {
-        print("tap")
-        let view = sender.view as? UIView
-        
+    @objc func setGender(sender: UITapGestureRecognizer) {        
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let destVC = storyboard.instantiateViewController(withIdentifier: "destinationVC") as! CoinsViewController
         
         destVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         destVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        
+        destVC.coins = self.coins
         
         self.present(destVC, animated: true, completion: nil)
     }
