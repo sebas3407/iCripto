@@ -21,31 +21,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initializeUIControls()
         DownloadCoins()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(setGender(sender:)))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(openCoinsView(sender:)))
         viewFirstCoin.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        let purpleTop = UIColor(hex: 0xFF7340F5).cgColor
-        let purpleBotoom = UIColor(hex: 0xFF7340F4).cgColor
-        
-        let greenTop = UIColor(hex: 0x92FE9D).cgColor
-        let greenBottom = UIColor(hex: 0x00C9FF).cgColor
-        
-        let orangeTop = UIColor(hex: 0xfe8c00).cgColor
-        let orangeBottom = UIColor(hex: 0xf83600).cgColor
-        
-        let pinkTop = UIColor(hex: 0xF15F79).cgColor
-        let pinkBottom = UIColor(hex: 0xB24592).cgColor
-        
-        viewFirstCoin.setGradient(colorTop: purpleTop, colorBottom: purpleBotoom)
-        viewSecondCoin.setGradient(colorTop: greenTop, colorBottom: greenBottom)
-        viewThirdCoin.setGradient(colorTop: orangeTop, colorBottom: orangeBottom)
-        viewFourthCoin.setGradient(colorTop: pinkTop, colorBottom: pinkBottom)
-        
-        lblToday.text = setFormatedDate(date: Date())
         super.viewWillAppear(animated)
     }
 
@@ -82,7 +65,7 @@ class ViewController: UIViewController {
         return formatter.string(from: date)
     }
     
-    @objc func setGender(sender: UITapGestureRecognizer) {        
+    @objc func openCoinsView(sender: UITapGestureRecognizer) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let destVC = storyboard.instantiateViewController(withIdentifier: "destinationVC") as! CoinsViewController
         
@@ -92,5 +75,26 @@ class ViewController: UIViewController {
         destVC.coins = self.coins
         
         self.present(destVC, animated: true, completion: nil)
+    }
+    
+    func initializeUIControls(){
+        let purpleTop = UIColor(hex: 0xFF7340F5).cgColor
+        let purpleBotoom = UIColor(hex: 0xFF7340F4).cgColor
+        
+        let greenTop = UIColor(hex: 0x92FE9D).cgColor
+        let greenBottom = UIColor(hex: 0x00C9FF).cgColor
+        
+        let orangeTop = UIColor(hex: 0xfe8c00).cgColor
+        let orangeBottom = UIColor(hex: 0xf83600).cgColor
+        
+        let pinkTop = UIColor(hex: 0xF15F79).cgColor
+        let pinkBottom = UIColor(hex: 0xB24592).cgColor
+        
+        viewFirstCoin.setGradient(colorTop: purpleTop, colorBottom: purpleBotoom)
+        viewSecondCoin.setGradient(colorTop: greenTop, colorBottom: greenBottom)
+        viewThirdCoin.setGradient(colorTop: orangeTop, colorBottom: orangeBottom)
+        viewFourthCoin.setGradient(colorTop: pinkTop, colorBottom: pinkBottom)
+        
+        lblToday.text = setFormatedDate(date: Date())
     }
 }
