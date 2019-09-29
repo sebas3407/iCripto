@@ -12,6 +12,18 @@ class CoinsViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     var coins : Array<Coin> = []
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)       
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let destVC = storyboard.instantiateViewController(withIdentifier: "mainVC") as! ViewController
+        
+        destVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        destVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        
+        self.present(destVC, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
