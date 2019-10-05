@@ -13,7 +13,14 @@ class ViewController: UIViewController {
     var coins : Array<Coin> = []
     
     //UI controls
-    @IBOutlet weak var viewFirstCoin: UIView!
+    @IBOutlet weak var viewFirstCoin: UIView!{
+        didSet {
+            let purpleBotoom = UIColor(hex: 0xFF7340F4).cgColor
+            viewFirstCoin.setGradient(colorTop: (UIColor(named: "purpleTop")?.cgColor)!, colorBottom: purpleBotoom)
+
+        }
+    }
+    
     @IBOutlet weak var viewSecondCoin: UIView!
     @IBOutlet weak var viewThirdCoin: UIView!
     @IBOutlet weak var viewFourthCoin: UIView!
@@ -26,6 +33,13 @@ class ViewController: UIViewController {
         DownloadCoins()
         let tap = UITapGestureRecognizer(target: self, action: #selector(openCoinsView(sender:)))
         viewFirstCoin.addGestureRecognizer(tap)
+        /*
+        UserDefaults.standard.string(forKey: "firstCoin")
+        UserDefaults.standard.string(forKey: "secondCoin")
+        UserDefaults.standard.string(forKey: "thirdCoin")
+        UserDefaults.standard.string(forKey: "fourthCoin")
+ */
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,8 +92,7 @@ class ViewController: UIViewController {
     }
     
     func initializeUIControls(){
-        let purpleTop = UIColor(hex: 0xFF7340F5).cgColor
-        let purpleBotoom = UIColor(hex: 0xFF7340F4).cgColor
+
         
         let greenTop = UIColor(hex: 0x92FE9D).cgColor
         let greenBottom = UIColor(hex: 0x00C9FF).cgColor
@@ -90,7 +103,6 @@ class ViewController: UIViewController {
         let pinkTop = UIColor(hex: 0xF15F79).cgColor
         let pinkBottom = UIColor(hex: 0xB24592).cgColor
         
-        viewFirstCoin.setGradient(colorTop: purpleTop, colorBottom: purpleBotoom)
         viewSecondCoin.setGradient(colorTop: greenTop, colorBottom: greenBottom)
         viewThirdCoin.setGradient(colorTop: orangeTop, colorBottom: orangeBottom)
         viewFourthCoin.setGradient(colorTop: pinkTop, colorBottom: pinkBottom)
