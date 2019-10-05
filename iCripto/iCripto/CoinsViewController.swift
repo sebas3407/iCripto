@@ -34,18 +34,18 @@ class CoinsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let coin = coins[indexPath.row].name
+        let coin = coins[indexPath.row].id
         
-//        switch "" {
-//        case "":
-//            UserDefaults.standard.set(coin, forKey: "")
-//        case "":
-//            UserDefaults.standard.set(coin, forKey: "")
-//        case "":
-//            UserDefaults.standard.set(coin, forKey: "")
-//        default:
-//            UserDefaults.standard.set(coin, forKey: "")
-//        }
+        switch "" {
+        case "":
+            UserDefaults.standard.set(coin, forKey: "firstCoin")
+        case "":
+            UserDefaults.standard.set(coin, forKey: "secondCoin")
+        case "":
+            UserDefaults.standard.set(coin, forKey: "thirdCoin")
+        default:
+            UserDefaults.standard.set(coin, forKey: "fourthCoin")
+        }
         
         goToMainViewController()
     }
