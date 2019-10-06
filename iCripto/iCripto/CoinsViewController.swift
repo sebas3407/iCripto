@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CoinsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CoinsViewController: UITableViewController {
 
     var coins : Array<Coin> = []
     
@@ -20,19 +20,19 @@ class CoinsViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return coins.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell:UITableViewCell=UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "mycell")
+        let cell:UITableViewCell=UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "CoinCell")
         cell.textLabel?.text  = coins[indexPath.row].name
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let coin = coins[indexPath.row].id
         
@@ -50,7 +50,7 @@ class CoinsViewController: UIViewController, UITableViewDataSource, UITableViewD
         goToMainViewController()
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell,
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell,
                    forRowAt indexPath: IndexPath) {
       //  cell.backgroundColor = UIColor.clear
     }
