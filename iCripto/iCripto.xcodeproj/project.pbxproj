@@ -64,14 +64,13 @@
 			children = (
 				AAD748B4231B153D0039FFE8 /* Extensions */,
 				AA3C829D2269118E008CC066 /* Models */,
+				AAC69B95234D220C00D9192C /* Controllers */,
 				AA3C8288226910A9008CC066 /* AppDelegate.swift */,
-				AA3C828A226910A9008CC066 /* ViewController.swift */,
 				AA3C828C226910A9008CC066 /* Main.storyboard */,
 				AA3C8292226910AC008CC066 /* Assets.xcassets */,
 				AA3C8294226910AC008CC066 /* LaunchScreen.storyboard */,
 				AA3C8297226910AC008CC066 /* Info.plist */,
 				AA3C828F226910A9008CC066 /* iCripto.xcdatamodeld */,
-				AAD748B7231C01550039FFE8 /* CoinsViewController.swift */,
 			);
 			path = iCripto;
 			sourceTree = "<group>";
@@ -82,6 +81,15 @@
 				AA3C829E2269119E008CC066 /* Coin.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		AAC69B95234D220C00D9192C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AA3C828A226910A9008CC066 /* ViewController.swift */,
+				AAD748B7231C01550039FFE8 /* CoinsViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		AAD748B4231B153D0039FFE8 /* Extensions */ = {
