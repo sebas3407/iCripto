@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     var coins : Array<Coin> = []
     
     //UI controls
@@ -17,35 +17,59 @@ class ViewController: UIViewController {
         didSet {
             let purpleBotoom = UIColor(hex: 0xFF7340F4).cgColor
             viewFirstCoin.setGradient(colorTop: (UIColor(named: "purpleTop")?.cgColor)!, colorBottom: purpleBotoom)
-
         }
     }
     
-    @IBOutlet weak var viewSecondCoin: UIView!
-    @IBOutlet weak var viewThirdCoin: UIView!
-    @IBOutlet weak var viewFourthCoin: UIView!
-    @IBOutlet weak var lblToday: UILabel!
+    @IBOutlet weak var viewSecondCoin: UIView!{
+        didSet {
+            let greenTop = UIColor(hex: 0x92FE9D).cgColor
+            let greenBottom = UIColor(hex: 0x00C9FF).cgColor
+            viewSecondCoin.setGradient(colorTop: greenTop, colorBottom: greenBottom)
+        }
+    }
+    
+    @IBOutlet weak var viewThirdCoin: UIView!{
+        didSet{
+            let pinkTop = UIColor(hex: 0xF15F79).cgColor
+            let pinkBottom = UIColor(hex: 0xB24592).cgColor
+            viewFourthCoin.setGradient(colorTop: pinkTop, colorBottom: pinkBottom)
+        }
+    }
+    
+    @IBOutlet weak var viewFourthCoin: UIView!{
+        didSet{
+            let orangeTop = UIColor(hex: 0xfe8c00).cgColor
+            let orangeBottom = UIColor(hex: 0xf83600).cgColor
+            viewThirdCoin.setGradient(colorTop: orangeTop, colorBottom: orangeBottom)
+        }
+    }
+    
+    @IBOutlet weak var lblToday: UILabel!{
+        didSet{
+            lblToday.text = setFormatedDate(date: Date())
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initializeUIControls()
+        // initializeUIControls()
         DownloadCoins()
         let tap = UITapGestureRecognizer(target: self, action: #selector(openCoinsView(sender:)))
         viewFirstCoin.addGestureRecognizer(tap)
         /*
-        UserDefaults.standard.string(forKey: "firstCoin")
-        UserDefaults.standard.string(forKey: "secondCoin")
-        UserDefaults.standard.string(forKey: "thirdCoin")
-        UserDefaults.standard.string(forKey: "fourthCoin")
- */
-
+         UserDefaults.standard.string(forKey: "firstCoin")
+         UserDefaults.standard.string(forKey: "secondCoin")
+         UserDefaults.standard.string(forKey: "thirdCoin")
+         UserDefaults.standard.string(forKey: "fourthCoin")
+         */
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-
+    
     func DownloadCoins()
     {
         //Implementing URLSession
@@ -62,7 +86,7 @@ class ViewController: UIViewController {
                 self.coins = try JSONDecoder().decode(Array<Coin>.self, from: dataFromUrl)
                 
                 DispatchQueue.main.async {
-
+                    
                 }
                 
             } catch let jsonError {
@@ -92,21 +116,5 @@ class ViewController: UIViewController {
     }
     
     func initializeUIControls(){
-
-        
-        let greenTop = UIColor(hex: 0x92FE9D).cgColor
-        let greenBottom = UIColor(hex: 0x00C9FF).cgColor
-        
-        let orangeTop = UIColor(hex: 0xfe8c00).cgColor
-        let orangeBottom = UIColor(hex: 0xf83600).cgColor
-        
-        let pinkTop = UIColor(hex: 0xF15F79).cgColor
-        let pinkBottom = UIColor(hex: 0xB24592).cgColor
-        
-        viewSecondCoin.setGradient(colorTop: greenTop, colorBottom: greenBottom)
-        viewThirdCoin.setGradient(colorTop: orangeTop, colorBottom: orangeBottom)
-        viewFourthCoin.setGradient(colorTop: pinkTop, colorBottom: pinkBottom)
-        
-        lblToday.text = setFormatedDate(date: Date())
     }
 }
