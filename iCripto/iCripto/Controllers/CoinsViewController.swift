@@ -35,6 +35,7 @@ class CoinsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let coin = coins[indexPath.row].id
+        print(coins[indexPath.row].name)
         
         switch "" {
         case "":

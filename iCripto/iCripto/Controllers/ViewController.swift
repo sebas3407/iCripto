@@ -46,10 +46,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // initializeUIControls()
         DownloadCoins()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(openCoinsView(sender:)))
-        viewFirstCoin.addGestureRecognizer(tap)
+        
+        let views : [UIView] = [viewFirstCoin, viewSecondCoin, viewThirdCoin, viewFourthCoin]
+        for view in views{
+            let tap = UITapGestureRecognizer(target: self, action: #selector(openCoinsView(sender:)))
+            view.addGestureRecognizer(tap)
+        }
         /*
          UserDefaults.standard.string(forKey: "firstCoin")
          UserDefaults.standard.string(forKey: "secondCoin")
@@ -106,8 +109,5 @@ class ViewController: UIViewController {
         destVC.coins = self.coins
         
         self.present(destVC, animated: true, completion: nil)
-    }
-    
-    func initializeUIControls(){
     }
 }
