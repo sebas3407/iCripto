@@ -35,18 +35,18 @@ class CoinsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let coin = coins[indexPath.row].id
+        let coin = coins[indexPath.row]
         print(coins[indexPath.row].name)
         
         switch senderView {
         case 1:
-            UserDefaults.standard.set(coin, forKey: "firstCoin")
+            UserDefaults.standard.set(try! PropertyListEncoder().encode(coin), forKey: "firstCoin")
         case 2:
             UserDefaults.standard.set(coin, forKey: "secondCoin")
         case 3:
             UserDefaults.standard.set(coin, forKey: "thirdCoin")
         default:
-            UserDefaults.standard.set(coin, forKey: "fourthCoin")
+            UserDefaults.standard.set(try! PropertyListEncoder().encode(coin), forKey: "fourthCoin")
         }
         
         goToMainViewController()

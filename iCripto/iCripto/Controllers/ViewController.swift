@@ -59,10 +59,16 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let firsCoin = UserDefaults.standard.string(forKey: "firstCoin")
-        let secondCoin = UserDefaults.standard.string(forKey: "secondCoin")
-        let thirdCoin = UserDefaults.standard.string(forKey: "thirdCoin")
-        let fourthCoin = UserDefaults.standard.string(forKey: "fourthCoin")
+//        let firsCoin = UserDefaults.standard.string(forKey: "firstCoin")
+//        let secondCoin = UserDefaults.standard.string(forKey: "secondCoin")
+//        let thirdCoin = UserDefaults.standard.string(forKey: "thirdCoin")
+        let storedObject: Data = UserDefaults.standard.object(forKey: "fourthCoin") as! Data
+        let storedPlayer: Coin = try! PropertyListDecoder().decode(Coin.self, from: storedObject)
+        
+        print("\(storedPlayer.name) + \(storedPlayer.priceUsd)")
+
+        
+       // let fourthCoin = UserDefaults.standard.object(forKey: "fourthCoin")
     }
     
     func DownloadCoins()
