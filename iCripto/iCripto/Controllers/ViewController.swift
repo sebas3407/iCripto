@@ -15,32 +15,25 @@ class ViewController: UIViewController {
     //UI controls
     @IBOutlet weak var viewFirstCoin: UIView!{
         didSet {
-            let purpleBotoom = UIColor(hex: 0xFF7340F4).cgColor
-            viewFirstCoin.setGradient(colorTop: (UIColor(named: "purpleTop")?.cgColor)!, colorBottom: purpleBotoom)
+            viewFirstCoin.setGradient(colorTop: (UIColor(named: "purpleTop")?.cgColor)!, colorBottom: (UIColor(named: "purpleBottom")?.cgColor)!)
         }
     }
     
     @IBOutlet weak var viewSecondCoin: UIView!{
         didSet {
-            let greenTop = UIColor(hex: 0x92FE9D).cgColor
-            let greenBottom = UIColor(hex: 0x00C9FF).cgColor
-            viewSecondCoin.setGradient(colorTop: greenTop, colorBottom: greenBottom)
+            viewSecondCoin.setGradient(colorTop: (UIColor(named: "greenTop")?.cgColor)!, colorBottom: (UIColor(named: "greenBottom")?.cgColor)!)
         }
     }
     
     @IBOutlet weak var viewThirdCoin: UIView!{
         didSet{
-            let pinkTop = UIColor(hex: 0xF15F79).cgColor
-            let pinkBottom = UIColor(hex: 0xB24592).cgColor
-            viewFourthCoin.setGradient(colorTop: pinkTop, colorBottom: pinkBottom)
+            viewThirdCoin.setGradient(colorTop: (UIColor(named: "orangeTop")?.cgColor)!, colorBottom: (UIColor(named: "orangeBottom")?.cgColor)!)
         }
     }
     
     @IBOutlet weak var viewFourthCoin: UIView!{
         didSet{
-            let orangeTop = UIColor(hex: 0xfe8c00).cgColor
-            let orangeBottom = UIColor(hex: 0xf83600).cgColor
-            viewThirdCoin.setGradient(colorTop: orangeTop, colorBottom: orangeBottom)
+             viewFourthCoin.setGradient(colorTop: (UIColor(named: "pinkTop")?.cgColor)!, colorBottom: (UIColor(named: "pinkBottom")?.cgColor)!)
         }
     }
     
