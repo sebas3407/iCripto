@@ -49,21 +49,20 @@ class ViewController: UIViewController {
         DownloadCoins()
         
         let views : [UIView] = [viewFirstCoin, viewSecondCoin, viewThirdCoin, viewFourthCoin]
-        for view in views{
+        for i in 0..<views.count{
             let tap = UITapGestureRecognizer(target: self, action: #selector(openCoinsView(sender:)))
-            view.addGestureRecognizer(tap)
+            tap.accessibilityLabel = String(i + 1)
+            views[i].addGestureRecognizer(tap)
         }
-        /*
-         UserDefaults.standard.string(forKey: "firstCoin")
-         UserDefaults.standard.string(forKey: "secondCoin")
-         UserDefaults.standard.string(forKey: "thirdCoin")
-         UserDefaults.standard.string(forKey: "fourthCoin")
-         */
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        let firsCoin = UserDefaults.standard.string(forKey: "firstCoin")
+        let secondCoin = UserDefaults.standard.string(forKey: "secondCoin")
+        let thirdCoin = UserDefaults.standard.string(forKey: "thirdCoin")
+        let fourthCoin = UserDefaults.standard.string(forKey: "fourthCoin")
     }
     
     func DownloadCoins()
@@ -81,9 +80,7 @@ class ViewController: UIViewController {
             do {
                 self.coins = try JSONDecoder().decode(Array<Coin>.self, from: dataFromUrl)
                 
-                DispatchQueue.main.async {
-                    
-                }
+                DispatchQueue.main.async {}
                 
             } catch let jsonError {
                 print(jsonError)
@@ -100,6 +97,7 @@ class ViewController: UIViewController {
     }
     
     @objc func openCoinsView(sender: UITapGestureRecognizer) {
+        let senderView = sender.accessibilityLabel
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let destVC = storyboard.instantiateViewController(withIdentifier: "destinationVC") as! CoinsViewController
         
@@ -107,6 +105,7 @@ class ViewController: UIViewController {
         destVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         
         destVC.coins = self.coins
+        destVC.senderView = Int(senderView!)!
         
         self.present(destVC, animated: true, completion: nil)
     }

@@ -11,6 +11,7 @@ import UIKit
 class CoinsViewController: UITableViewController {
 
     var coins : Array<Coin> = []
+    var senderView : Int = 0
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -37,12 +38,12 @@ class CoinsViewController: UITableViewController {
         let coin = coins[indexPath.row].id
         print(coins[indexPath.row].name)
         
-        switch "" {
-        case "":
+        switch senderView {
+        case 1:
             UserDefaults.standard.set(coin, forKey: "firstCoin")
-        case "":
+        case 2:
             UserDefaults.standard.set(coin, forKey: "secondCoin")
-        case "":
+        case 3:
             UserDefaults.standard.set(coin, forKey: "thirdCoin")
         default:
             UserDefaults.standard.set(coin, forKey: "fourthCoin")
@@ -57,7 +58,6 @@ class CoinsViewController: UITableViewController {
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        
         return .lightContent
     }
     
