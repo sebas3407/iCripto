@@ -44,14 +44,25 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet weak var lblFirstCoinName: UILabel!
-    
     @IBOutlet weak var lblFirstCoinPrice: UILabel!
+    
+    @IBOutlet weak var lblSecondCoinName: UILabel!
+    @IBOutlet weak var lblSecondCoinPrice: UILabel!
+    
+    @IBOutlet weak var lblThirdCoinName: UILabel!
+    @IBOutlet weak var lblThirdCoinPrice: UILabel!
+    
+    @IBOutlet weak var lblFourthCoinName: UILabel!
+    @IBOutlet weak var lblFourthCoinPrice: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DownloadCoins()
-        
+        downloadCoins()
+        addGestures()
+    }
+    
+    func addGestures(){
         let views : [UIView] = [viewFirstCoin, viewSecondCoin, viewThirdCoin, viewFourthCoin]
         for i in 0..<views.count{
             let tap = UITapGestureRecognizer(target: self, action: #selector(openCoinsView(sender:)))
@@ -93,21 +104,20 @@ class ViewController: UIViewController {
                     lblFirstCoinName.text = "\(coin.symbol) - \(coin.name)"
                     lblFirstCoinPrice.text = price
                 case "secondCoin":
-                    lblFirstCoinName.text = "\(coin.symbol) - \(coin.name)"
-                    lblFirstCoinPrice.text = price
+                    lblSecondCoinName.text = "\(coin.symbol) - \(coin.name)"
+                    lblSecondCoinPrice.text = price
                 case "thirdCoin":
-                    lblFirstCoinName.text = "\(coin.symbol) - \(coin.name)"
-                    lblFirstCoinPrice.text = price
+                    lblThirdCoinName.text = "\(coin.symbol) - \(coin.name)"
+                    lblThirdCoinPrice.text = price
                 default:
-                    lblFirstCoinName.text = "\(coin.symbol) - \(coin.name)"
-                    lblFirstCoinPrice.text = price
+                    lblFourthCoinName.text = "\(coin.symbol) - \(coin.name)"
+                    lblFourthCoinPrice.text = price
             }
         }
     }
     
-    func DownloadCoins()
+    func downloadCoins()
     {
-        //Implementing URLSession
         let urlString = "https://api.coinmarketcap.com/v1/ticker/?limit=0"
         guard let url = URL(string: urlString) else { return }
         
@@ -127,7 +137,6 @@ class ViewController: UIViewController {
             }
             
             }.resume()
-        //End implementing URLSession
     }
     
     func setFormatedDate(date : Date) -> String{
