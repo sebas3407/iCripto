@@ -43,6 +43,10 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var lblFirstCoinName: UILabel!
+    
+    @IBOutlet weak var lblFirstCoinPrice: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,16 +63,46 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        let firsCoin = UserDefaults.standard.string(forKey: "firstCoin")
-//        let secondCoin = UserDefaults.standard.string(forKey: "secondCoin")
-//        let thirdCoin = UserDefaults.standard.string(forKey: "thirdCoin")
-        let storedObject: Data = UserDefaults.standard.object(forKey: "fourthCoin") as! Data
-        let storedPlayer: Coin = try! PropertyListDecoder().decode(Coin.self, from: storedObject)
+        reloadCoins(coinType: "firstCoin")
+//        reloadCoins(coinType: "secondCoin")
+//        reloadCoins(coinType: "thirdCoin")
+//        reloadCoins(coinType: "fourthCoin")
+    }
+    
+    func reloadCoins(coinType : String){
         
-        print("\(storedPlayer.name) + \(storedPlayer.priceUsd)")
-
-        
-       // let fourthCoin = UserDefaults.standard.object(forKey: "fourthCoin")
+        if let storedObject: Data = UserDefaults.standard.object(forKey: coinType) as? Data {
+            let coin: Coin = try! PropertyListDecoder().decode(Coin.self, from: storedObject)
+            print("Main view controller \(coin.name)")
+            
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+            formatter.maximumFractionDigits = 2
+            formatter.currencySymbol = "$"
+                    
+            let priceString = coin.priceUsd
+            var priceNumber : NSNumber = 0
+            if let priceInteger = Double(priceString){
+                priceNumber = NSNumber(value: priceInteger)
+            }
+            
+            let price = formatter.string(from: priceNumber)
+            
+            switch coinType {
+                case "firstCoin":
+                    lblFirstCoinName.text = "\(coin.symbol) - \(coin.name)"
+                    lblFirstCoinPrice.text = price
+                case "secondCoin":
+                    lblFirstCoinName.text = "\(coin.symbol) - \(coin.name)"
+                    lblFirstCoinPrice.text = price
+                case "thirdCoin":
+                    lblFirstCoinName.text = "\(coin.symbol) - \(coin.name)"
+                    lblFirstCoinPrice.text = price
+                default:
+                    lblFirstCoinName.text = "\(coin.symbol) - \(coin.name)"
+                    lblFirstCoinPrice.text = price
+            }
+        }
     }
     
     func DownloadCoins()
