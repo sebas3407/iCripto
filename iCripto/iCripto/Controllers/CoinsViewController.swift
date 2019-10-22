@@ -42,9 +42,9 @@ class CoinsViewController: UITableViewController {
         case 1:
             UserDefaults.standard.set(try! PropertyListEncoder().encode(coin), forKey: "firstCoin")
         case 2:
-            UserDefaults.standard.set(coin, forKey: "secondCoin")
+            UserDefaults.standard.set(try! PropertyListEncoder().encode(coin), forKey: "secondCoin")
         case 3:
-            UserDefaults.standard.set(coin, forKey: "thirdCoin")
+            UserDefaults.standard.set(try! PropertyListEncoder().encode(coin), forKey: "thirdCoin")
         default:
             UserDefaults.standard.set(try! PropertyListEncoder().encode(coin), forKey: "fourthCoin")
         }
