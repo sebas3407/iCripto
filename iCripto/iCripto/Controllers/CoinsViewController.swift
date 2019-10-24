@@ -15,10 +15,23 @@ class CoinsViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        checkConnection()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    func checkConnection(){
+
+        if(coins.count == 0){
+            let myalert = UIAlertController(title: "Connection error", message: "Please, check your internet connection", preferredStyle: UIAlertController.Style.alert) 
+            myalert.addAction(UIAlertAction(title: "Ok", style: .default) { (action:UIAlertAction!) in 
+                self.goToMainViewController()
+            })
+
+            self.present(myalert, animated: true) 
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
