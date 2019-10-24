@@ -185,12 +185,16 @@
                     <connections>
                         <outlet property="lblFirstCoinName" destination="BLp-C0-t0x" id="axP-Ev-ZzP"/>
                         <outlet property="lblFirstCoinPrice" destination="eR1-cJ-CmQ" id="TgS-cG-TMX"/>
+                        <outlet property="lblFirstCoinQuantity" destination="AJC-uL-88y" id="88y-kT-7Uz"/>
                         <outlet property="lblFourthCoinName" destination="q8L-td-D5z" id="lLE-be-F9N"/>
                         <outlet property="lblFourthCoinPrice" destination="Qd2-7i-WvX" id="3BK-bc-pw8"/>
+                        <outlet property="lblFourthCoinQuantity" destination="106-2G-Ct5" id="ywY-H9-7w9"/>
                         <outlet property="lblSecondCoinName" destination="N7m-eM-Xjr" id="dO6-RB-dc5"/>
                         <outlet property="lblSecondCoinPrice" destination="lCX-dq-Ni0" id="85v-Xp-KR9"/>
+                        <outlet property="lblSecondCoinQuantity" destination="GZD-o7-q80" id="iuB-SA-jqW"/>
                         <outlet property="lblThirdCoinName" destination="A8P-aC-jUK" id="v7b-EU-QfQ"/>
                         <outlet property="lblThirdCoinPrice" destination="HLH-gq-hTR" id="9nW-Kv-JEd"/>
+                        <outlet property="lblThirdCoinQuantity" destination="Pir-JJ-77c" id="wsF-Pf-jIQ"/>
                         <outlet property="lblToday" destination="Yrq-3y-A6N" id="aFs-aw-cQp"/>
                         <outlet property="viewFirstCoin" destination="9wK-vn-ICq" id="hq9-ey-3hb"/>
                         <outlet property="viewFourthCoin" destination="0mV-yv-bQA" id="Z0k-NN-s8F"/>

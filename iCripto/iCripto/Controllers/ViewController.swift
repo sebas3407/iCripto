@@ -43,15 +43,19 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var lblFirstCoinName: UILabel!
     @IBOutlet weak var lblFirstCoinPrice: UILabel!
+    @IBOutlet weak var lblFirstCoinQuantity: UILabel!
     
     @IBOutlet weak var lblSecondCoinName: UILabel!
     @IBOutlet weak var lblSecondCoinPrice: UILabel!
+    @IBOutlet weak var lblSecondCoinQuantity: UILabel!
     
     @IBOutlet weak var lblThirdCoinName: UILabel!
     @IBOutlet weak var lblThirdCoinPrice: UILabel!
-    
+    @IBOutlet weak var lblThirdCoinQuantity: UILabel!
+
     @IBOutlet weak var lblFourthCoinName: UILabel!
     @IBOutlet weak var lblFourthCoinPrice: UILabel!
+    @IBOutlet weak var lblFourthCoinQuantity: UILabel!
 
     @IBOutlet weak var lblBalance: UILabel!
     @IBOutlet weak var lblDifference: UILabel!
