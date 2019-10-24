@@ -10,6 +10,11 @@ import UIKit
 
 class CoinsValueViewController: UIViewController {
 
+    var firstCoinBalance : Double = 0.0
+    var secondCoinBalance : Double = 0.0
+    var thirdCoinBalance : Double = 0.0
+    var fourthCoinBalance : Double = 0.0
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }

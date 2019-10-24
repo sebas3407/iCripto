@@ -10,8 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var coins : Array<Coin> = []
-    
     //UI controls
     @IBOutlet weak var viewFirstCoin: UIView!{
         didSet {
@@ -54,6 +52,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var lblFourthCoinName: UILabel!
     @IBOutlet weak var lblFourthCoinPrice: UILabel!
+
+    @IBOutlet weak var lblBalance: UILabel!
+    @IBOutlet weak var lblDifference: UILabel!
+
+    var coins : Array<Coin> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,16 +78,15 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         
         reloadCoins(coinType: "firstCoin")
-//        reloadCoins(coinType: "secondCoin")
-//        reloadCoins(coinType: "thirdCoin")
-//        reloadCoins(coinType: "fourthCoin")
+        reloadCoins(coinType: "secondCoin")
+        reloadCoins(coinType: "thirdCoin")
+        reloadCoins(coinType: "fourthCoin")
     }
     
     func reloadCoins(coinType : String){
         
         if let storedObject: Data = UserDefaults.standard.object(forKey: coinType) as? Data {
             let coin: Coin = try! PropertyListDecoder().decode(Coin.self, from: storedObject)
-            print("Main view controller \(coin.name)")
             
             let formatter = NumberFormatter()
             formatter.numberStyle = .currency
@@ -143,6 +145,21 @@ class ViewController: UIViewController {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         return formatter.string(from: date)
+    }
+
+    func calculateBalance(){
+        let result : Double
+
+    }
+
+    func calculateDifference(){
+        let oldValue : Double = 5
+        let newValue : Double = 3
+        let differenceType = newValue > oldValue ? "+" : "-"
+        var difference : Double = (oldValue - newValue) / oldValue
+        difference *= 100
+
+        lblDifference.text = "\(differenceType)\(difference)%"
     }
     
     @objc func openCoinsView(sender: UITapGestureRecognizer) {
