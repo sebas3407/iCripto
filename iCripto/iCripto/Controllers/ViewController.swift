@@ -67,6 +67,7 @@ class ViewController: UIViewController {
         
         downloadCoins()
         addGestures()
+        calculateDifference()
     }
     
     func addGestures(){
@@ -157,13 +158,29 @@ class ViewController: UIViewController {
     }
 
     func calculateDifference(){
-        let oldValue : Double = 5
-        let newValue : Double = 3
-        let differenceType = newValue > oldValue ? "+" : "-"
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = 2
+        formatter.percentSymbol = "%"
+        
+        let oldValue : Double = 3
+        let newValue : Double = 6
+        var differenceType = ""
+        if (newValue > oldValue){
+            differenceType = "+"
+            lblDifference.textColor = .green //CHANGE COLOR
+        }
+        else{
+            differenceType = "-"
+            lblDifference.textColor = .red //CHANGE COLOR
+        }
         var difference : Double = (oldValue - newValue) / oldValue
         difference *= 100
+        difference = abs(difference)
+        
+        let differenceNumber = NSNumber(value: difference)
+        let differenceString = formatter.string(from: differenceNumber)!
 
-        lblDifference.text = "\(differenceType)\(difference)%"
+        lblDifference.text = "\(differenceType)\(differenceString)%"
     }
     
     @objc func openCoinsView(sender: UITapGestureRecognizer) {
