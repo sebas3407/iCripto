@@ -46,14 +46,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+30.2%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2t-6j-lbH">
-                                <rect key="frame" x="20" y="318" width="62" height="22"/>
+                                <rect key="frame" x="20" y="318" width="71" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.38431372549019605" green="0.83529411764705885" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28s-Nk-HUD">
-                                <rect key="frame" x="89" y="318" width="46" height="22"/>
+                                <rect key="frame" x="94" y="318" width="46" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
@@ -183,6 +183,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="lblBalance" destination="HYY-AT-maD" id="cwi-Tx-m4R"/>
+                        <outlet property="lblDifference" destination="T2t-6j-lbH" id="l6W-Nu-ywW"/>
                         <outlet property="lblFirstCoinName" destination="BLp-C0-t0x" id="axP-Ev-ZzP"/>
                         <outlet property="lblFirstCoinPrice" destination="eR1-cJ-CmQ" id="TgS-cG-TMX"/>
                         <outlet property="lblFirstCoinQuantity" destination="AJC-uL-88y" id="88y-kT-7Uz"/>
