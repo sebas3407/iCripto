@@ -72,6 +72,13 @@ class ViewController: UIViewController {
         calculateBalance()
         calculateDifference()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        for coin in coinsTittle{
+            reloadCoins(coinType: coin)
+        }
+    }
     
     func addGestures(){
         let views : [UIView] = [viewFirstCoin, viewSecondCoin, viewThirdCoin, viewFourthCoin]
@@ -79,14 +86,6 @@ class ViewController: UIViewController {
             let tap = UITapGestureRecognizer(target: self, action: #selector(openCoinsView(sender:)))
             tap.accessibilityLabel = String(i + 1)
             views[i].addGestureRecognizer(tap)
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        for coin in coinsTittle{
-            reloadCoins(coinType: coin)
         }
     }
     
@@ -184,6 +183,7 @@ class ViewController: UIViewController {
         let oldValue : Double = 3
         let newValue : Double = 6
         var differenceType = ""
+        
         if (newValue > oldValue){
             differenceType = "+"
             lblDifference.textColor = UIColor(named: "mainGreen")
@@ -214,5 +214,9 @@ class ViewController: UIViewController {
         destVC.senderView = Int(senderView!)!
         
         self.present(destVC, animated: true, completion: nil)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }

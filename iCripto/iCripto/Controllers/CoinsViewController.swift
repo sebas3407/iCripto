@@ -49,7 +49,6 @@ class CoinsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let coin = coins[indexPath.row]
-        print(coins[indexPath.row].name)
         
         switch senderView {
         case 1:
@@ -70,10 +69,6 @@ class CoinsViewController: UITableViewController {
       //  cell.backgroundColor = UIColor.clear
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     func goToMainViewController(){
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let destVC = storyboard.instantiateViewController(withIdentifier: "mainVC") as! ViewController
@@ -82,5 +77,9 @@ class CoinsViewController: UITableViewController {
         destVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         
         self.present(destVC, animated: true, completion: nil)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
