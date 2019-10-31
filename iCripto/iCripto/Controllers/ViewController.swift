@@ -59,14 +59,17 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var lblBalance: UILabel!
     @IBOutlet weak var lblDifference: UILabel!
-
+    
     var coins : Array<Coin> = []
+    let coinsTittle : [String] = ["firstCoin", "secondCoin", "thirdCoin", "fourthCoin"]
+    var coinsQuantity = [2,3,4,5]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         downloadCoins()
         addGestures()
+        calculateBalance()
         calculateDifference()
     }
     
@@ -82,10 +85,9 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        reloadCoins(coinType: "firstCoin")
-        reloadCoins(coinType: "secondCoin")
-        reloadCoins(coinType: "thirdCoin")
-        reloadCoins(coinType: "fourthCoin")
+        for coin in coinsTittle{
+            reloadCoins(coinType: coin)
+        }
     }
     
     func reloadCoins(coinType : String){
@@ -109,15 +111,19 @@ class ViewController: UIViewController {
             switch coinType {
                 case "firstCoin":
                     lblFirstCoinName.text = "\(coin.symbol) - \(coin.name)"
+                    lblFirstCoinQuantity.text = "\(coinsQuantity[0])"
                     lblFirstCoinPrice.text = price
                 case "secondCoin":
                     lblSecondCoinName.text = "\(coin.symbol) - \(coin.name)"
+                    lblSecondCoinQuantity.text = "\(coinsQuantity[1])"
                     lblSecondCoinPrice.text = price
                 case "thirdCoin":
                     lblThirdCoinName.text = "\(coin.symbol) - \(coin.name)"
+                    lblThirdCoinQuantity.text = "\(coinsQuantity[2])"
                     lblThirdCoinPrice.text = price
                 default:
                     lblFourthCoinName.text = "\(coin.symbol) - \(coin.name)"
+                    lblFourthCoinQuantity.text = "\(coinsQuantity[3])"
                     lblFourthCoinPrice.text = price
             }
         }
@@ -153,8 +159,21 @@ class ViewController: UIViewController {
     }
 
     func calculateBalance(){
-        let result : Double
-
+        var result : Double = 0
+        
+        for i in 0..<coinsTittle.count{
+            if let storedObject: Data = UserDefaults.standard.object(forKey: coinsTittle[i]) as? Data {
+                let coin: Coin = try! PropertyListDecoder().decode(Coin.self, from: storedObject)
+                result += Double(coin.priceUsd)! * Double(coinsQuantity[i])
+            }
+        }
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencySymbol = "$"
+        formatter.maximumFractionDigits = 2
+        let resultString =  formatter.string(from: NSNumber(value: result))
+        lblBalance.text = resultString
     }
 
     func calculateDifference(){
@@ -167,11 +186,11 @@ class ViewController: UIViewController {
         var differenceType = ""
         if (newValue > oldValue){
             differenceType = "+"
-            lblDifference.textColor = .green //CHANGE COLOR
+            lblDifference.textColor = UIColor(named: "mainGreen")
         }
         else{
             differenceType = "-"
-            lblDifference.textColor = .red //CHANGE COLOR
+            lblDifference.textColor = UIColor(named: "mainRed")
         }
         var difference : Double = (oldValue - newValue) / oldValue
         difference *= 100
