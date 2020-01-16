@@ -45,20 +45,32 @@ class ViewController: UIViewController {
     @IBOutlet weak var lblFirstCoinPrice: UILabel!
     @IBOutlet weak var lblFirstCoinQuantity: UILabel!
     
+    
     @IBOutlet weak var lblSecondCoinName: UILabel!
     @IBOutlet weak var lblSecondCoinPrice: UILabel!
     @IBOutlet weak var lblSecondCoinQuantity: UILabel!
+
     
     @IBOutlet weak var lblThirdCoinName: UILabel!
     @IBOutlet weak var lblThirdCoinPrice: UILabel!
     @IBOutlet weak var lblThirdCoinQuantity: UILabel!
 
+
     @IBOutlet weak var lblFourthCoinName: UILabel!
     @IBOutlet weak var lblFourthCoinPrice: UILabel!
     @IBOutlet weak var lblFourthCoinQuantity: UILabel!
+    
 
     @IBOutlet weak var lblBalance: UILabel!
     @IBOutlet weak var lblDifference: UILabel!
+    
+    @IBOutlet weak var imgTapFirstCoin: UIImageView!
+    
+    @IBOutlet weak var imgTapSecondCoin: UIImageView!
+    
+    @IBOutlet weak var imgTapThirdCoin: UIImageView!
+    
+    @IBOutlet weak var imgTapFourthCoin: UIImageView!
     
     var coins : Array<Coin> = []
     let coinsTittle : [String] = ["firstCoin", "secondCoin", "thirdCoin", "fourthCoin"]
@@ -109,21 +121,52 @@ class ViewController: UIViewController {
             
             switch coinType {
                 case "firstCoin":
+                    lblFirstCoinName.isHidden = false
                     lblFirstCoinName.text = "\(coin.symbol) - \(coin.name)"
+                    
+                    lblFirstCoinQuantity.isHidden = false
                     lblFirstCoinQuantity.text = "\(coinsQuantity[0])"
+                    
+                    lblFirstCoinPrice.isHidden = false
                     lblFirstCoinPrice.text = price
+                
+                    imgTapFirstCoin.isHidden = true
+                
                 case "secondCoin":
+                    lblSecondCoinName.isHidden = false
                     lblSecondCoinName.text = "\(coin.symbol) - \(coin.name)"
+                    
+                    lblSecondCoinQuantity.isHidden = false
                     lblSecondCoinQuantity.text = "\(coinsQuantity[1])"
+                    
+                    lblSecondCoinPrice.isHidden = false
                     lblSecondCoinPrice.text = price
+                
+                    imgTapSecondCoin.isHidden = true
+
                 case "thirdCoin":
+                    lblThirdCoinName.isHidden = false
                     lblThirdCoinName.text = "\(coin.symbol) - \(coin.name)"
+                    
+                    lblThirdCoinQuantity.isHidden = false
                     lblThirdCoinQuantity.text = "\(coinsQuantity[2])"
+                    
+                    lblThirdCoinPrice.isHidden = false
                     lblThirdCoinPrice.text = price
+                
+                    imgTapThirdCoin.isHidden = true
+                
                 default:
+                    lblFourthCoinName.isHidden = false
                     lblFourthCoinName.text = "\(coin.symbol) - \(coin.name)"
+                    
+                    lblFourthCoinQuantity.isHidden = false
                     lblFourthCoinQuantity.text = "\(coinsQuantity[3])"
+                    
+                    lblFourthCoinPrice.isHidden = false
                     lblFourthCoinPrice.text = price
+                
+                    imgTapFourthCoin.isHidden = true
             }
         }
     }

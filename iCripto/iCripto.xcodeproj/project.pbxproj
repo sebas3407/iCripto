@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93097FCE23CF4E490088A4CE /* tap.png in Resources */ = {isa = PBXBuildFile; fileRef = 93097FCD23CF4E490088A4CE /* tap.png */; };
 		AA3C8289226910A9008CC066 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3C8288226910A9008CC066 /* AppDelegate.swift */; };
 		AA3C828B226910A9008CC066 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3C828A226910A9008CC066 /* ViewController.swift */; };
 		AA3C828E226910A9008CC066 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA3C828C226910A9008CC066 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		93097FCD23CF4E490088A4CE /* tap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tap.png; sourceTree = "<group>"; };
 		AA3C8285226910A9008CC066 /* iCripto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCripto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA3C8288226910A9008CC066 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA3C828A226910A9008CC066 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				AA3C8294226910AC008CC066 /* LaunchScreen.storyboard */,
 				AA3C8297226910AC008CC066 /* Info.plist */,
 				AA3C828F226910A9008CC066 /* iCripto.xcdatamodeld */,
+				93097FCD23CF4E490088A4CE /* tap.png */,
 			);
 			path = iCripto;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				AA3C8296226910AC008CC066 /* LaunchScreen.storyboard in Resources */,
 				AA3C8293226910AC008CC066 /* Assets.xcassets in Resources */,
 				AA3C828E226910A9008CC066 /* Main.storyboard in Resources */,
+				93097FCE23CF4E490088A4CE /* tap.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
