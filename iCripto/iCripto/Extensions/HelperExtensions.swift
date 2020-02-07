@@ -1,11 +1,3 @@
-//
-//  HelperExtensions.swift
-//  iCripto
-//
-//  Created by Sebastian Ortiz Velez on 31/08/2019.
-//  Copyright © 2019 Sebastian Ortiz Velez. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
@@ -27,5 +19,19 @@ extension UIView {
         gradientLayer.frame = self.bounds
         
         self.layer.insertSublayer(gradientLayer, at:0)
+    }
+}
+
+public extension UITextField {
+    func setBottomBorder(bottomColor : CGColor) {
+        
+        let border = CALayer()
+        let width = CGFloat(1.0)
+        border.borderColor = UIColor.init(displayP3Red: 0.86, green: 0.86, blue: 0.89, alpha: 1).cgColor
+        border.borderWidth = 4
+        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width:  self.frame.size.width, height: self.frame.size.height)
+        border.borderWidth = width
+        self.layer.addSublayer(border)
+        self.layer.masksToBounds = true
     }
 }
